@@ -3,10 +3,10 @@ package org.launchcode.techjobs.console;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
+//import java.util.Map
 
 
-
-//import static org.launchcode.techjobs.console.JobData.findByValue;
+import static org.launchcode.techjobs.console.JobData.findByValue;
 
 /**
  * Created by LaunchCode

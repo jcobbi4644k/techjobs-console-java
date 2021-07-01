@@ -4,6 +4,7 @@ import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVParser;
 import org.apache.commons.csv.CSVRecord;
 
+
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
@@ -52,9 +53,9 @@ public class JobData {
         loadData();
 
         return allJobs;
-        ArrayList<HashMap<String, string>> allJobsCopy = new ArrayList<>(allJobs.size());
+        ArrayList <HashMap<String, String>>allJobsCopy = new ArrayList<>(allJobs.size());
         for (HashMap<String, String> jobs: allJobs) {
-            allJobsCopy.add(HashMap<String, String>jobs.clone());
+            allJobsCopy.add((HashMap<String, String>)jobs.clone());
         }
         return allJobsCopy;
     }
