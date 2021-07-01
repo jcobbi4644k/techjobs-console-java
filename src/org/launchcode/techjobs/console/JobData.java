@@ -14,6 +14,7 @@ import java.util.List;
 /**
  * Created by LaunchCode
  */
+
 public class JobData {
 
     private static final String DATA_FILE = "resources/job_data.csv";
@@ -43,6 +44,7 @@ public class JobData {
             }
         }
 
+        collections.sort(values);
         return values;
     }
 
@@ -53,6 +55,11 @@ public class JobData {
 
         return allJobs;
     }
+
+
+
+
+
 
     /**
      * Returns results of search the jobs data by key/value, using
