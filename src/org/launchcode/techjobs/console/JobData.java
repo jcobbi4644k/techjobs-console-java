@@ -52,8 +52,8 @@ public class JobData {
         // load data, if not already loaded
         loadData();
 
-        return allJobs;
-        ArrayList <HashMap<String, String>>allJobsCopy = new ArrayList<>(allJobs.size());
+//        return allJobs;
+        ArrayList<HashMap<String, String>> allJobsCopy = new ArrayList<>(allJobs.size());
         for (HashMap<String, String> jobs: allJobs) {
             allJobsCopy.add((HashMap<String, String>)jobs.clone());
         }
@@ -110,6 +110,7 @@ public class JobData {
 
         return jobs;
     }
+
 
     /**
      * Read in data from a CSV file and store it in a list
