@@ -5,6 +5,7 @@ import java.util.HashMap;
 import java.util.Scanner;
 
 
+
 //import static org.launchcode.techjobs.console.JobData.findByValue;
 
 /**
@@ -15,6 +16,7 @@ public class TechJobs {
     private static Scanner in = new Scanner(System.in);
 
     public static void main (String[] args) {
+
 
         // Initialize our field map with key/name pairs
         HashMap<String, String> columnChoices = new HashMap<>();
@@ -65,6 +67,7 @@ public class TechJobs {
 
                 if (searchField.equals("all")) {
                     System.out.println("Search all fields not yet implemented.");
+
                 } else {
                     printJobs(JobData.findByColumnAndValue(searchField, searchTerm));
                 }
@@ -73,6 +76,13 @@ public class TechJobs {
     }
 
     // ﻿Returns the key of the selected item from the choices Dictionary
+
+
+
+
+
+
+
     private static String getUserSelection(String menuHeader, HashMap<String, String> choices) {
 
         Integer choiceIdx;
@@ -101,12 +111,14 @@ public class TechJobs {
 
             // Validate user's input
             if (choiceIdx < 0 || choiceIdx >= choiceKeys.length) {
+
                 System.out.println("Invalid choice. Try again.");
             } else {
                 validChoice = true;
             }
 
         } while(!validChoice);
+
 
         return choiceKeys[choiceIdx];
     }
@@ -115,5 +127,6 @@ public class TechJobs {
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
 
         System.out.println("printJobs is not implemented yet");
+
     }
 }

@@ -7,9 +7,7 @@ import org.apache.commons.csv.CSVRecord;
 import java.io.FileReader;
 import java.io.IOException;
 import java.io.Reader;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
+import java.util.*;
 
 /**
  * Created by LaunchCode
@@ -44,7 +42,7 @@ public class JobData {
             }
         }
 
-        collections.sort(values);
+        Collections.sort(values);
         return values;
     }
 
@@ -54,11 +52,12 @@ public class JobData {
         loadData();
 
         return allJobs;
+        ArrayList<HashMap<String, string>> allJobsCopy = new ArrayList<>(allJobs.size());
+        for (HashMap<String, String> jobs: allJobs) {
+            allJobsCopy.add(HashMap<String, String>jobs.clone());
+        }
+        return allJobsCopy;
     }
-
-
-
-
 
 
     /**
@@ -72,6 +71,26 @@ public class JobData {
      * @param value Value of teh field to search for
      * @return List of all jobs matching the criteria
      */
+
+    public static ArrayList<HashMap<String, String>> findByValue(String value) {
+        loadData();
+        ArrayList<HashMap<String, String>> jobs = new ArrayList<>();
+
+        for (HashMap<String, String> row: allJobs) {
+
+            for(Map.Entry<String, String> column: row.entrySet()){
+                if (column.getValue().toUpperCase().contains(value.toUpperCase())) {
+                    System.out.println(row);
+                    if(jobs.contains(row)){
+                        continue;
+                    }
+                    jobs.add(row);
+                }
+            }
+        }
+        return jobs;
+    }
+
     public static ArrayList<HashMap<String, String>> findByColumnAndValue(String column, String value) {
 
         // load data, if not already loaded
