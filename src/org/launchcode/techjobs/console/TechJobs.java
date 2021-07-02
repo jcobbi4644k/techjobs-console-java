@@ -4,10 +4,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Scanner;
 import java.util.Map;
-
-
-import static org.launchcode.techjobs.console.JobData.findByValue;
-
+//import static org.launchcode.techjobs.console.JobData.findByValue;
 /**
  * Created by LaunchCode
  */
@@ -15,9 +12,8 @@ public class TechJobs {
 
     private static Scanner in = new Scanner(System.in);
 
-    public static void main(String[] args) {
+    public static void main (String[] args) {
 //    public static void main (String[] args) {
-
         // Initialize our field map with key/name pairs
         HashMap<String, String> columnChoices = new HashMap<>();
         columnChoices.put("core competency", "Skill");
@@ -66,8 +62,7 @@ public class TechJobs {
                 String searchTerm = in.nextLine();
 
                 if (searchField.equals("all")) {
-//                    System.out.println("Search all fields not yet implemented.");
-                    printJobs(findByValue(searchTerm));
+                    printJobs(JobData.findByValue(searchTerm));
                 } else {
                     printJobs(JobData.findByColumnAndValue(searchField, searchTerm));
                 }
@@ -76,13 +71,6 @@ public class TechJobs {
     }
 
     // ﻿Returns the key of the selected item from the choices Dictionary
-
-
-
-
-
-
-
     private static String getUserSelection(String menuHeader, HashMap<String, String> choices) {
 
         Integer choiceIdx;
@@ -111,36 +99,26 @@ public class TechJobs {
 
             // Validate user's input
             if (choiceIdx < 0 || choiceIdx >= choiceKeys.length) {
-            if (choiceIdx < 0 || choiceIdx >= choiceKeys.length){
-
                 System.out.println("Invalid choice. Try again.");
             } else {
                 validChoice = true;
             }
 
         } while(!validChoice);
-        } while (!validChoice);
 
         return choiceKeys[choiceIdx];
     }
 
     // Print a list of jobs
     private static void printJobs(ArrayList<HashMap<String, String>> someJobs) {
-
-        System.out.println("printJobs is not implemented yet");
-        if (someJobs.size() == 0) {
-            System.out.println("No Matches Found For Your Search Term");
+        if (someJobs.isEmpty()){
+            System.out.println("No jobs found");
         }else {
-            for (int i = 0; i < someJobs.size(); i++) {
-                System.out.println("*****");
-                for (Map.Entry<String, String> item : someJobs.get(i).entrySet()) {
-                    String key = item.getKey();
-                    Object value = item.getValue();
-                    System.out.println(key + ": " + value);
+            for (HashMap<String, String> entry : someJobs) {
+                for (Map.Entry<String, String> line : entry.entrySet()) {
+                    System.out.println(line.getKey() + ":" + line.getValue());
                 }
-                System.out.println("*****\n");
             }
         }
-
     }
 }
