@@ -53,6 +53,7 @@ public class JobData {
         loadData();
 
 //        return allJobs;
+
         ArrayList<HashMap<String, String>> allJobsCopy = new ArrayList<>(allJobs.size());
         for (HashMap<String, String> jobs: allJobs) {
             allJobsCopy.add((HashMap<String, String>)jobs.clone());
@@ -103,14 +104,13 @@ public class JobData {
 
             String aValue = row.get(column);
 
-            if (aValue.contains(value)) {
+            if (aValue.toUpperCase().contains(value.toUpperCase())) {
                 jobs.add(row);
             }
         }
 
         return jobs;
     }
-
 
     /**
      * Read in data from a CSV file and store it in a list
