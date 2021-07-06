@@ -115,9 +115,11 @@ public class TechJobs {
             System.out.println("No jobs found");
         }else {
             for (HashMap<String, String> entry : someJobs) {
+                System.out.println("\n*****") ;
                 for (Map.Entry<String, String> line : entry.entrySet()) {
-                    System.out.println(line.getKey() + ":" + line.getValue());
+                    System.out.println(line.getKey() + ": " + line.getValue());
                 }
+                System.out.println("*****");
             }
         }
     }
